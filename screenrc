@@ -1,0 +1,5 @@
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %c:%s "
+startup_message off
+vbell off
+bind ' ' title
