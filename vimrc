@@ -7,8 +7,14 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" plugins
 Plugin 'gmarik/Vundle.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'phillipberndt/python-imports.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -24,6 +30,22 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" tagbar
+let g:tagbar_left = 1
+let g:tagbar_width = 25
+let g:tagbar_zoomwidth = 0
+let g:tagbar_compact=1
+nmap <F8> :TagbarToggle<CR>
+
+" nerdtree
+nmap <F7> :NERDTreeToggle<CR>
+
+" indentLine
+let g:indentLine_char = '┊'
+
+" python-imports
+let g:PythonAutoAddImports = 1
 
 " 显示相关  
 syntax on
