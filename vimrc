@@ -11,9 +11,18 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'Yggdroot/indentLine'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'fisadev/fisa-vim-colorshceme'
+Plugin 'tpope/vim-surround'
+Plugin 'Townk/vim-autoclose'
+Plugin 'klen/python-mode'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'fisadev/vim-isort'
+Plugin 'scrooloose/syntastic'
+
+Plugin 'matchit.zip'
 Plugin 'phillipberndt/python-imports.vim'
 
 " All of your Plugins must be added before the following line
@@ -31,21 +40,64 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" tagbar
+" ===== Plugins settings =====
+" ----- Tagbar -----
+nmap <F4> :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_width = 25
 let g:tagbar_zoomwidth = 0
 let g:tagbar_compact=1
-nmap <F8> :TagbarToggle<CR>
 
-" nerdtree
-nmap <F7> :NERDTreeToggle<CR>
+" ----- Nerdtree -----
+nmap <F3> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-" indentLine
-let g:indentLine_char = '┊'
+" ----- Syntastic -----
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 0
 
-" python-imports
-let g:PythonAutoAddImports = 1
+" ----- Python-mode -----
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_signs = 0
+" don't fold python code on open
+let g:pymode_folding = 0
+" don't load rope by default. Change to 1 to use rope
+let g:pymode_rope = 0
+" open definitions on same window, and custom mappings for definitions and
+" occurrences
+let g:pymode_rope_goto_definition_bind = ',d'
+let g:pymode_rope_goto_definition_cmd = 'e'
+
+"----- NeoComplCache -----
+" NeoComplCache ------------------------------
+
+" most of them not documented because I'm not sure how they work
+" (docs aren't good, had to do a lot of trial and error to make 
+" it play nice)
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_manual_completion_start_length = 1
+let g:neocomplcache_min_keyword_length = 1
+let g:neocomplcache_min_syntax_length = 1
+" complete with workds from any opened file
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
+"----- Autoclose -----
+" Fix to let ESC work as espected with Autoclose plugin
+let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+"----- Airline -----
+let g:airline_powerline_fonts = 0
+" let g:airline_theme = 'bubblegum'
+let g:airline#extensions#whitespace#enabled = 0
 
 " 显示相关  
 syntax on
