@@ -14,6 +14,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Townk/vim-autoclose'
 Plugin 'klen/python-mode'
@@ -95,17 +98,18 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 "----- Airline -----
 let g:airline_powerline_fonts = 0
-" let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'base16'
 let g:airline#extensions#whitespace#enabled = 0
 
 " 显示相关  
 syntax on
+set t_Co=256
 set cul "高亮光标所在行
 set cuc
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
-color ron     " 设置背景主题  
-set guifont=Courier_New:h10:cANSI   " 设置字体  
+colorscheme base16-default-dark     " 设置背景主题  
+"set guifont=Courier_New:h10:cANSI   " 设置字体  
 autocmd InsertEnter * se cul    " 用浅色高亮当前行  
 set ruler           " 显示标尺  
 set showcmd         " 输入的命令显示出来，看的清楚些  
@@ -149,18 +153,18 @@ autocmd BufNewFile *.py,*.pl exec ":call SetTitle()"
 "" 定义函数SetTitle，自动插入文件头  
 func SetTitle() 
     if (&filetype == "python")
-        call setline(1, "# -*- coding: utf-8 -*-")
-        call setline(2, "#")
-        call setline(3, "# Author: Plumiron")
+        call setline(1, "#-*- coding: utf-8 -*-")
+        call setline(2, "#!/usr/bin/python")
+        call setline(3, "# Author:")
         call setline(4, "#")
         call setline(5, "# Created Time: ".strftime("%Y-%m-%d %H:%M:%S"))
         call setline(6, "# Description:")
         call setline(7, "#")
     endif
     if (&filetype == "perl")
-        call setline(1, "#")
-        call setline(2, "# Author: Plumiron")
-        call setline(3, "#")
+        call setline(1, "#!/usr/bin/perl")
+        call setline(2, "#")
+        call setline(3, "# Author:")
         call setline(4, "# Created Time: ".strftime("%Y-%m-%d %H:%M:%S"))
         call setline(5, "# Description:")
         call setline(6, "#")
