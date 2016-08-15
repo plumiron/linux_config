@@ -98,17 +98,18 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 "----- Airline -----
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'base16'
+let g:airline_theme = 'wombat'
 let g:airline#extensions#whitespace#enabled = 0
 
 " 显示相关  
 syntax on
 set t_Co=256
 set cul "高亮光标所在行
-set cuc
+"set cuc
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
-colorscheme base16-default-dark     " 设置背景主题  
+"let base16colorspace=256
+"colorscheme base16-default-dark     " 设置背景主题  
 "set guifont=Courier_New:h10:cANSI   " 设置字体  
 autocmd InsertEnter * se cul    " 用浅色高亮当前行  
 set ruler           " 显示标尺  
